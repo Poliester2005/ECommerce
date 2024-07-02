@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "dgSpecHash": "P49o4ElOEZNZBfUwm1ehADiLbPxKowQre6sZoGnR8rgmB6AYJ9nBRY7arMJnGc4Ja7HLlgj2Tj7W5CclHai9EQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\aluno\\Documents\\GitHub\\ECommerce\\ECommerce.WindowsForms\\ECommerce.WindowsForms.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\aluno\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\aluno\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\8.0.0\\microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+    "C:\\Users\\aluno\\.nuget\\packages\\npgsql\\8.0.3\\npgsql.8.0.3.nupkg.sha512",
+    "C:\\Users\\aluno\\.nuget\\packages\\system.diagnostics.diagnosticsource\\8.0.0\\system.diagnostics.diagnosticsource.8.0.0.nupkg.sha512",
+    "C:\\Users\\aluno\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+    "C:\\Users\\aluno\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
+    "C:\\Users\\aluno\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
