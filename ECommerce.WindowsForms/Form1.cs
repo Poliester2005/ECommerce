@@ -23,7 +23,7 @@ namespace ECommerce.WindowsForms
                 {
                     connection.Open();
 
-                    string query = "SELECT Id, Nome, Descricao, Preco FROM Produtos WHERE Deletado = '0' AND Nome ILIKE @NomePesquisa";
+                    string query = "SELECT Id, Nome, Descricao, Preco FROM Produtos WHERE Deletado = false AND Nome ILIKE @NomePesquisa";
 
                     using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
                     {
