@@ -1,20 +1,31 @@
+ï»¿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Windows.Forms;
 using ECommerce.WindowsForms.Models;
 using Npgsql;
 
 namespace ECommerce.WindowsForms
 {
-    public partial class Form1 : Form
+    public partial class frmProdutoDetalhe : Form
     {
         private string _connectionString = "User ID=postgres;Password=fatec;Host=localhost;Port=5432;Database=dbDatabase;";
 
-        public Form1()
+        public frmProdutoDetalhe()
         {
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public frmProdutoDetalhe(int id) : this()
         {
+            Id = id;
+            CarregarProduto(id);
+        }
 
+        public int Id { get; }
+
+        private void CarregarProduto(int id)
+        {
             List<Produto> produtos = new List<Produto>();
 
             using (NpgsqlConnection connection = new NpgsqlConnection(_connectionString))
@@ -23,11 +34,11 @@ namespace ECommerce.WindowsForms
                 {
                     connection.Open();
 
-                    string query = "SELECT Id, Nome, Descricao, Preco FROM Produtos WHERE Deletado = false AND Nome ILIKE @NomePesquisa";
+                    string query = "SELECT Id, Nome, Descricao, Preco FROM Produtos WHERE Id = @id";
 
                     using (NpgsqlCommand command = new NpgsqlCommand(query, connection))
                     {
-                        command.Parameters.Add(new NpgsqlParameter("@NomePesquisa", $"%{txtPesquisa.Text}%"));
+                        command.Parameters.AddWithValue("@id", id);
 
                         using (NpgsqlDataReader reader = command.ExecuteReader())
                         {
@@ -55,32 +66,17 @@ namespace ECommerce.WindowsForms
                 }
             }
 
-            // Mostrar os produtos no DataGridView se houver algum resultado
             if (produtos.Count > 0)
             {
-                dgvProdutos.DataSource = produtos;
-                dgvProdutos.Columns["Id"].Visible = false;
-                dgvProdutos.Columns["Nome"].HeaderText = "Nome";
-                dgvProdutos.Columns["Descricao"].HeaderText = "Descrição";
-                dgvProdutos.Columns["Preco"].HeaderText = "Preço";
+                txtId.Text = produtos[0].Id.ToString();
+                txtNome.Text = produtos[0].Nome;
+                txtDesc.Text = produtos[0].Descricao;
+                txtPreco.Text = produtos[0].Preco.ToString();
             }
             else
             {
-                dgvProdutos.DataSource = null; // Limpar o DataGridView
-                MessageBox.Show("Nenhum produto encontrado.", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Nenhum produto encontrado.", "InformaÃ§Ã£o", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
-        private void btnDet_Click(object sender, EventArgs e)
-        {
-            if (dgvProdutos.SelectedRows.Count > 0)
-            {
-                DataGridViewRow selectedRow = dgvProdutos.SelectedRows[0];
-                int id = (int)selectedRow.Cells["ID"].Value;
-                var produtoDetalhe = new frmProdutoDetalhe(id);
-                produtoDetalhe.ShowDialog(); 
-            }
-        }
-
     }
 }

@@ -55,6 +55,7 @@
             this.btnDet.TabIndex = 1;
             this.btnDet.Text = "Detalhes";
             this.btnDet.UseVisualStyleBackColor = true;
+            this.btnDet.Click += new System.EventHandler(this.btnDet_Click);
             // 
             // btnCad
             // 
@@ -64,7 +65,6 @@
             this.btnCad.TabIndex = 2;
             this.btnCad.Text = "Cadastrar";
             this.btnCad.UseVisualStyleBackColor = true;
-            this.btnCad.Click += new System.EventHandler(this.btnCad_Click);
             // 
             // txtPesquisa
             // 
