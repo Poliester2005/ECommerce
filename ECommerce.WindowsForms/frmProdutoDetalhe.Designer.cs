@@ -38,6 +38,8 @@
             this.txtDesc = new System.Windows.Forms.TextBox();
             this.txtPreco = new System.Windows.Forms.TextBox();
             this.cbDispo = new System.Windows.Forms.CheckBox();
+            this.comboCat = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -50,6 +52,7 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "ID:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label1.Visible = false;
             // 
             // label2
             // 
@@ -81,12 +84,13 @@
             // 
             // btnAcao
             // 
-            this.btnAcao.Location = new System.Drawing.Point(135, 282);
+            this.btnAcao.Location = new System.Drawing.Point(135, 311);
             this.btnAcao.Name = "btnAcao";
             this.btnAcao.Size = new System.Drawing.Size(94, 29);
             this.btnAcao.TabIndex = 4;
-            this.btnAcao.Text = "Ação";
+            this.btnAcao.Text = "Atualizar";
             this.btnAcao.UseVisualStyleBackColor = true;
+            this.btnAcao.Click += new System.EventHandler(this.btnAcao_Click);
             // 
             // txtId
             // 
@@ -95,6 +99,7 @@
             this.txtId.ReadOnly = true;
             this.txtId.Size = new System.Drawing.Size(125, 27);
             this.txtId.TabIndex = 5;
+            this.txtId.Visible = false;
             // 
             // txtNome
             // 
@@ -127,11 +132,30 @@
             this.cbDispo.Text = "Disponível";
             this.cbDispo.UseVisualStyleBackColor = true;
             // 
+            // comboCat
+            // 
+            this.comboCat.FormattingEnabled = true;
+            this.comboCat.Location = new System.Drawing.Point(135, 277);
+            this.comboCat.Name = "comboCat";
+            this.comboCat.Size = new System.Drawing.Size(125, 28);
+            this.comboCat.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(54, 280);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(77, 20);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "Categoria:";
+            // 
             // frmProdutoDetalhe
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(317, 450);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.comboCat);
             this.Controls.Add(this.cbDispo);
             this.Controls.Add(this.txtPreco);
             this.Controls.Add(this.txtDesc);
@@ -161,5 +185,7 @@
         private TextBox txtDesc;
         private TextBox txtPreco;
         private CheckBox cbDispo;
+        private ComboBox comboCat;
+        private Label label5;
     }
 }
